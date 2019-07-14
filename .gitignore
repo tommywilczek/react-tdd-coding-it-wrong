@@ -3,3 +3,5 @@ node_modules
 cypress/integration/examples
 
 .cache
+
+yarn-error.log
