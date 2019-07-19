@@ -1,7 +1,7 @@
 {
-  "name": "react-tdd-coding-it-wrong",
+  "name": "book-review-app",
   "version": "1.0.0",
-  "description": "Following along Coding It Wrong's React TDD Youtube series",
+  "description": "A TDD'ed React App",
   "main": "index.js",
   "scripts": {
     "start": "clear; parcel index.html",
