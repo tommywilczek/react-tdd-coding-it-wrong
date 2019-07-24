@@ -1,14 +1,15 @@
 import React from 'react' // Functional component because it's display-only
+import { Collection, CollectionItem} from 'react-materialize'
 
 const RestaurantList = ({ restaurantNames }) => {
     return (
-        <ul>
+        <Collection>
             {
                 restaurantNames.map(restaurantName => (
-                    <li key={restaurantName}>{restaurantName}</li>
+                    <CollectionItem key={restaurantName}>{restaurantName}</CollectionItem>
                 ))
             }
-        </ul>
+        </Collection>
     )
 }
 
