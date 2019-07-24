@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react' // Functional component because it's display-only
 
 const RestaurantList = ({ restaurantNames }) => {
     return (

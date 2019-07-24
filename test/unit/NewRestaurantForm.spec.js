@@ -10,12 +10,14 @@ describe('NewRestaurantForm', () => {
 
             const wrapper = mount(<NewRestaurantForm onSave={saveHandler} />);
 
+            // Filling in text
             wrapper
-                .find('[data-test="newRestaurantName"]')
+                .find('input[data-test="newRestaurantName"]')
                 .simulate('change', { target: { value: restaurantName} } );
 
+            // Clicking the button
             wrapper
-                .find('[data-test="saveRestaurantButton"]')
+                .find('button[data-test="saveRestaurantButton"]')
                 .simulate('click');
 
             expect(saveHandler).toHaveBeenCalledWith(restaurantName);
