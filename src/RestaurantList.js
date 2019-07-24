@@ -3,11 +3,17 @@ import { Collection, CollectionItem} from 'react-materialize'
 
 const RestaurantList = ({ restaurantNames }) => {
     return (
-        <Collection>
+        <Collection header="Restaurants">
             {
-                restaurantNames.map(restaurantName => (
-                    <CollectionItem key={restaurantName}>{restaurantName}</CollectionItem>
-                ))
+                restaurantNames.length === 0
+                    ? (
+                        <CollectionItem>(None yet)</CollectionItem>
+                        )
+                    : (
+                        restaurantNames.map(restaurantName => (
+                                <CollectionItem key={restaurantName}>{restaurantName}</CollectionItem>
+                            ))
+                        )
             }
         </Collection>
     )
