@@ -1,55 +1,44 @@
 import React, { Component } from 'react'
-import { Button, Col, Row } from 'react-materialize'
+import { Button, Col, Row, Modal } from 'react-materialize'
 import NewRestaurantForm from './NewRestaurantForm'
 import RestaurantList from './RestaurantList'
 
 export default class RestaurantListPage extends Component {
     state = {
         restaurantNames: [],
-        showNewRestaurantForm: false
+        shouldShowFormModal: false
     }
 
-    handleShowNewRestaurantForm = () => {
-        this.setState({showNewRestaurantForm: true});
-    }
-    
 
-    handleAddRestaurant = (newRestaurantName) => {
+    handleAddRestaurant = newRestaurantName => {
         this.setState(state => ({
-            showNewRestaurantForm: false,
+            shouldShowFormModal: false,
             restaurantNames: [
                 newRestaurantName,
                 ...state.restaurantNames,
             ]
-        }))    
+        }));
     }
     
-    renderNewRestaurantForm() {
-        if (this.state.showNewRestaurantForm) {
-            return (
-                <NewRestaurantForm 
-                    onSave={this.handleAddRestaurant} 
-                />
-            )
-        }
-    }
-
     render() {
         const {restaurantNames} = this.state;
         return (
             <div>
-                <Row>
-                    <Button 
-                        data-test="addRestaurantButton"
-                        onClick={this.handleShowNewRestaurantForm}
-                    >
-                        Add Restaurant
-                    </Button>
-                </Row>
-                <Row>
-                    {this.renderNewRestaurantForm()}
-                </Row>
-                
+                <Modal
+                    header="Add a Restaurant"
+                    trigger={
+                        <Row>
+                            <Button data-test="addRestaurantButton">
+                                Add Restaurant
+                            </Button>
+                        </Row>
+                    }>
+                    
+                    <Row>
+                        <NewRestaurantForm onSave={this.handleAddRestaurant}/>
+                    </Row>
+                    
+                </Modal>
                 <Row>
                     <RestaurantList 
                         restaurantNames={restaurantNames} 

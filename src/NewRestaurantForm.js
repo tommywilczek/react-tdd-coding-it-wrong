@@ -32,6 +32,7 @@ export default class NewRestaurantForm extends Component {
                     />
                     <Button
                         s={12} m={4} l={2}
+                        className="modal-close"
                         data-test="saveRestaurantButton"
                         onClick={this.handleSave}
                     >
