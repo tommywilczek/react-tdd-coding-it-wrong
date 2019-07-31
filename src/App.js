@@ -1,6 +1,6 @@
 import React from 'react';
-import RestaurantListPage from './RestaurantListPage.js'
-import { Col, Row } from 'react-materialize'
+import RestaurantListPage from './RestaurantListPage.js';
+import { Col, Row } from 'react-materialize';
 
 export default class App extends React.Component {
     state = { name: 'viewers' };
@@ -11,6 +11,6 @@ export default class App extends React.Component {
             <RestaurantListPage />
           </Col>
         </Row>
-        )
+      );
     }
 }
