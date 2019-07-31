@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npm install -g wait-on
-- run: yarn start & wait-on http://localhost:1234/
+yarn start & wait-on http://localhost:1234/
