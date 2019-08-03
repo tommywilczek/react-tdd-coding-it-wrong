@@ -25,6 +25,7 @@ export default class RestaurantListPage extends Component {
         <div>
           <Modal
             header="Add a Restaurant"
+            data-test="addRestaurantModal"
             trigger={
               <Row>
                 <Button data-test="addRestaurantButton">
