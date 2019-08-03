@@ -6,6 +6,11 @@ export default class NewRestaurantForm extends Component {
       inputText: '',
     }
 
+    componentDidMount() {
+      this.nameInput.inputRef.focus();
+      // console.log('this.nameInput', this.nameInput.inputRef);
+    }
+
     handleTextChange = (event) => {
       this.setState({ inputText: event.target.value });
     }
@@ -15,6 +20,8 @@ export default class NewRestaurantForm extends Component {
       const { onSave } = this.props;
 
       onSave(inputText);
+
+      this.setState({ inputText: '' });
     }
 
     render() {
@@ -28,6 +35,9 @@ export default class NewRestaurantForm extends Component {
               value={inputText}
               onChange={this.handleTextChange}
               data-test="newRestaurantName"
+              ref={(input) => {
+                this.nameInput = input;
+              }}
             />
             <Button
               s={12} m={4} l={2}
