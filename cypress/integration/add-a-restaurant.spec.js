@@ -15,10 +15,13 @@ describe('Adding a restaurant', () => {
     cy.get('[data-test="addRestaurantModal"] .modal-footer button.modal-close')
       .click();
 
-    // Modal allows adding restaurant
     cy.get('[data-test="addRestaurantButton"]')
       .click();
 
+    // Modal focuses on text field when appears
+    cy.focused().should('have.attr', 'data-test', 'newRestaurantName');
+
+    // Modal allows adding restaurant
     cy.get('[data-test="newRestaurantName"]')
       .type(restaurantName);
 
